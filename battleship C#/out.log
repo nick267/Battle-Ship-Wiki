@@ -1,7 +1,10 @@
-Microsoft (R) Visual Basic Compiler version 14.8.3752
-for Visual Basic 2012
-Copyright (c) Microsoft Corporation.  All rights reserved.
+Microsoft (R) Visual C# Compiler version 4.8.3752.0
+for C# 5
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240
 
-This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to Visual Basic 2012, which is no longer the latest version. For compilers that support newer versions of the Visual Basic programming language, see http://go.microsoft.com/fwlink/?LinkID=533241
-
-vbc : Command line error BC2008 : no input sources specified
+src\Model\AIPlayer.cs(14,18): warning CS0660: 'AIPlayer.Location' defines operator == or operator != but does not override Object.Equals(object o)
+src\Model\AIPlayer.cs(14,18): warning CS0661: 'AIPlayer.Location' defines operator == or operator != but does not override Object.GetHashCode()
+src\Model\AIHardPlayer.cs(155,25): warning CS0162: Unreachable code detected
+src\Model\AIHardPlayer.cs(222,21): warning CS0162: Unreachable code detected
