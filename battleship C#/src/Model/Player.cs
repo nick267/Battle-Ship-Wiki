@@ -63,8 +63,6 @@ public class Player : IEnumerable<Ship>
     {
         _game = controller;
         _playerGrid = new SeaGrid(_Ships);
-        
-        Console.WriteLine("In Constructor Player");
 
         // for each ship add the ships name so the seagrid knows about them
         foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
@@ -72,8 +70,6 @@ public class Player : IEnumerable<Ship>
             if (name != ShipName.None)
                 _Ships.Add(name, new Ship(name));
         }
-
-        Console.WriteLine("About to RandomizeDeployment()");
         RandomizeDeployment();
     }
 
@@ -242,6 +238,12 @@ public class Player : IEnumerable<Ship>
         switch (result.Value)
         {
             case ResultOfAttack.Destroyed:
+                {
+                    _hits += 1;
+                    Console.WriteLine("target destroyed");
+                    break;
+                }
+
             case ResultOfAttack.Hit:
                 {
                     _hits += 1;

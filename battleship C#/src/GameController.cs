@@ -291,6 +291,9 @@ public static class GameController
                     AIAttack();
                 }
                 break;
+            case ResultOfAttack.GameOver:
+                SwitchState(GameState.EndingGame);
+                break;
         }
     }
 

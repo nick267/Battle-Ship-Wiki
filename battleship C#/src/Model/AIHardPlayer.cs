@@ -236,13 +236,13 @@ public class AIHardPlayer : AIPlayer
     ///     ''' <param name="ship">the row that was shot at and destroyed</param>
     private void ProcessDestroy(int row, int col, Ship ship)
     {
-        bool foundOriginal;
-        Location source;
-        Target current;
+        bool foundOriginal = false;
+        Location source = null;
+        Target current = null;
         current = _CurrentTarget;
 
         foundOriginal = false;
-
+        
         // i = 1, as we dont have targets from the current hit...
         int i;
         for (i = 1; i <= ship.Hits - 1; i++)
@@ -250,7 +250,7 @@ public class AIHardPlayer : AIPlayer
             if (!foundOriginal)
             {
                 source = current.Source;
-                // Source is nnothing if the ship was originally hit in
+                // Source is nothing if the ship was originally hit in
                 // the middle. This then searched forward, rather than
                 // backward through the list of targets
                 if (source == null)
@@ -259,9 +259,12 @@ public class AIHardPlayer : AIPlayer
                     foundOriginal = true;
                 }
             }
-            else
+            else {
                 source = current.ShotAt;
-
+                
+            }
+           
+            
             // find the source in _LastHit
             foreach (Target t in _LastHit)
             {
@@ -272,7 +275,7 @@ public class AIHardPlayer : AIPlayer
                     break;
                 }
             }
-
+            
             RemoveShotsAround(current.ShotAt);
         }
     }
