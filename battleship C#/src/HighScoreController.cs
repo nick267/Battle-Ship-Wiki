@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using SwinGameSDK;
 
@@ -62,17 +63,17 @@ internal static class HighScoreController
 		StreamReader input = new StreamReader(filename);
 
 		//Read in the # of scores
-		int numScores = Convert.ToInt32(input.ReadLine());
+        int numScores = 0;
+		numScores = Convert.ToInt32(input.ReadLine());
 
 		_Scores.Clear();
 
 		int i = 0;
 
-//INSTANT C# NOTE: There is no C# equivalent to VB's implicit 'once only' variable initialization within loops, so the following variable declaration has been placed prior to the loop:
-		Score s = new Score();
+
 		for (i = 1; i <= numScores; i++)
 		{
-//			Dim s As Score
+            Score s = default(Score);
 			string line = input.ReadLine();
 
 
@@ -205,6 +206,7 @@ internal static class HighScoreController
 			_Scores.RemoveAt(_Scores.Count - 1);
 			_Scores.Add(s);
 			_Scores.Sort();
+            SaveScores();
 
 			GameController.EndCurrentState();
 		}
