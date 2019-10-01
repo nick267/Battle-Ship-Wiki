@@ -118,7 +118,6 @@ internal static class MenuController
                 //IsMouseOver the i'th button of the menu
                 if (IsMouseOverMenu(i, level, xOffset))
                 {
-                    Console.WriteLine("In HandleMenuInput fn");
                     PerformMenuAction(menu, i);
                     return true;
                 }
@@ -250,20 +249,16 @@ internal static class MenuController
     /// <param name="button">the index of the button that was clicked</param>
     private static void PerformMenuAction(int menu, int button)
     {
-        Console.WriteLine("In PerformMenuAction fn");
         switch (menu)
         {
             
             case MAIN_MENU:
-                Console.WriteLine("About to PerformMainMenuAction fn");
                 PerformMainMenuAction(button);
                 break;
             case SETUP_MENU:
-                Console.WriteLine("About to PerformSetupMenuAction fn");
                 PerformSetupMenuAction(button);
                 break;
             case GAME_MENU:
-                Console.WriteLine("About to PerformGameMenuAction fn");
                 PerformGameMenuAction(button);
                 break;
         }
@@ -275,11 +270,9 @@ internal static class MenuController
     /// <param name="button">the button pressed</param>
     private static void PerformMainMenuAction(int button)
     {
-        Console.WriteLine("In PerformMainMenuAction fn");
         switch (button)
         {
 			case MAIN_MENU_PLAY_BUTTON:
-                Console.WriteLine("About to run StartGame() fn");
 				GameController.StartGame();
 				break;
 			case MAIN_MENU_SETUP_BUTTON:

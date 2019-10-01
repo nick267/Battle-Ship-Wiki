@@ -91,8 +91,6 @@ public static class GameController
         
         //Create the game
         _theGame = new BattleShipsGame();
-
-        Console.WriteLine("Game made fn");
         
         //TO FIX: Case Statement isn't working
         //create the players
@@ -112,10 +110,8 @@ public static class GameController
                 break;
         }
 
-        Console.WriteLine("Made AI player fn");
         _human = new Player(_theGame);
         
-        Console.WriteLine("About shit stuff fn");
         //AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
         _ai.PlayerGrid.Changed += GridChanged;
         _theGame.AttackCompleted += AttackCompleted;
@@ -314,19 +310,15 @@ public static class GameController
 		{
 			case GameState.ViewingMainMenu:
 				MenuController.HandleMainMenuInput();
-               // Console.WriteLine("Testing 1");
 				break;
 			case GameState.ViewingGameMenu:
-				MenuController.HandleGameMenuInput();
-               // Console.WriteLine("Testing 2");                
+				MenuController.HandleGameMenuInput();           
 				break;
 			case GameState.AlteringSettings:
 				MenuController.HandleSetupMenuInput();
-               // Console.WriteLine("Testing 3");
 				break;
 			case GameState.Deploying:
 				DeploymentController.HandleDeploymentInput();
-               // Console.WriteLine("Testing 4");
 				break;
 			case GameState.Discovering:
 				DiscoveryController.HandleDiscoveryInput();
