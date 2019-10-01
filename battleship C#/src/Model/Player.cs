@@ -240,7 +240,6 @@ public class Player : IEnumerable<Ship>
             case ResultOfAttack.Destroyed:
                 {
                     _hits += 1;
-                    Console.WriteLine("target destroyed");
                     break;
                 }
 
@@ -272,21 +271,14 @@ public class Player : IEnumerable<Ship>
                 continue;
 
             placementSuccessful = false;
-
-            //DEBUG
-            if (PlayerGrid == null)
-            {
-                Console.WriteLine("Cunt's fucked");
-            }
-            //--END DEBUG
-            
+            int x = 0;
+            int y = 0;
             // generate random position until the ship can be placed
-            Console.WriteLine("Loop to place ship");
             do
             {
                 int dir = _Random.Next(2);
-                int x = _Random.Next(0, 11);
-                int y = _Random.Next(0, 11);
+                x = _Random.Next(0, 11);
+                y = _Random.Next(0, 11);
                 if (dir == 0)
                     heading = Direction.UpDown;
                 else
@@ -295,18 +287,16 @@ public class Player : IEnumerable<Ship>
                 // try to place ship, if position unplaceable, generate new coordinates
                 try
                 {
-                    //Console.WriteLine("Attempting to place ship");
-                    //Console.WriteLine("x: " + x + " | y: " + y + " | shipToPlace: " + shipToPlace + " | heading: " + heading);
                     PlayerGrid.MoveShip(x, y, shipToPlace, heading);
                     placementSuccessful = true;
                 }
                 catch
                 {
-                    //Console.WriteLine("Failed to place ship");
                     placementSuccessful = false;
                 }
             }
             while (!placementSuccessful);
+            Console.WriteLine("x: " + y + " | y: " + x + " | shipToPlace: " + shipToPlace + " | heading: " + heading);
         }
     }
 }
