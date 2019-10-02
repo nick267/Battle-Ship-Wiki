@@ -41,21 +41,21 @@ internal static class DeploymentController
 	/// </remarks>
 	public static void HandleDeploymentInput()
 	{
-		if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
+		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
 		{
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
 
-		if ((SwinGame.KeyTyped(KeyCode.VK_UP) | SwinGame.KeyTyped(KeyCode.VK_DOWN)) != 0)
+		if ((SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN)))
 		{
 			_currentDirection = Direction.UpDown;
 		}
-		if ((SwinGame.KeyTyped(KeyCode.VK_LEFT) | SwinGame.KeyTyped(KeyCode.VK_RIGHT)) != 0)
+		if ((SwinGame.KeyTyped(KeyCode.vk_LEFT) | SwinGame.KeyTyped(KeyCode.vk_RIGHT)))
 		{
 			_currentDirection = Direction.LeftRight;
 		}
 
-		if (SwinGame.KeyTyped(KeyCode.VK_R))
+		if (SwinGame.KeyTyped(KeyCode.vk_r))
 		{
 			GameController.HumanPlayer.RandomizeDeployment();
 		}
@@ -72,7 +72,7 @@ internal static class DeploymentController
 				DoDeployClick();
 			}
 
-			if ((GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT)) != 0)
+			if ((GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT)))
 			{
 				GameController.EndDeployment();
 			}
