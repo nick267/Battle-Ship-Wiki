@@ -21,7 +21,7 @@ public static class GameController
     private static BattleShipsGame _theGame;
     private static Player _human;
     private static AIPlayer _ai;
-	private int gridSize;
+    private int _gridSize;
 	
 
     private static Stack<GameState> _state = new Stack<GameState>();
@@ -77,27 +77,8 @@ public static class GameController
         _state.Push(GameState.ViewingMainMenu);
     }
 	
-	public void SetGridSizeNormal(int size){
-		
-		get {
-			return gridSize;
-		}
-		set{
-			size = gridSize;
-		}
-		
-	}
-	
-	public void SetGridSizeBig(int size){
-		
-		get {
-			return gridSize;
-		}
-		set{
-			size = gridSize;
-		}
-		
-	}
+    public int GridSize{ get { return _gridSize; } set {_gridSize = value; }
+
 
     /// <summary>
     /// Starts a new game.
