@@ -8,6 +8,15 @@ using SwinGameSDK;
 
 internal static class EndingGameController
 {
+	private static bool _playerSurrendered = false;
+
+	public static void PlayerSurrendered() {
+		_playerSurrendered = true;
+	}
+
+	public static void PlayerSurrenderReset() {
+		_playerSurrendered = false;
+	}
 
 	/// <summary>
 	/// Draw the end of the game screen, shows the win/lose state
@@ -29,6 +38,10 @@ internal static class EndingGameController
 		if (GameController.HumanPlayer.IsDestroyed)
 		{
 			whatShouldIPrint = "YOU LOSE!";
+		}
+		else if (_playerSurrendered)
+		{
+			whatShouldIPrint = "SURRENDERED!";
 		}
 		else
 		{

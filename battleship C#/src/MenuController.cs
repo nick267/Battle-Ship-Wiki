@@ -274,6 +274,7 @@ internal static class MenuController
         {
 			case MAIN_MENU_PLAY_BUTTON:
 				GameController.StartGame();
+                EndingGameController.PlayerSurrenderReset();
 				break;
 			case MAIN_MENU_SETUP_BUTTON:
 				GameController.AddNewState(GameState.AlteringSettings);
@@ -321,8 +322,8 @@ internal static class MenuController
 				GameController.EndCurrentState();
 				break;
 			case GAME_MENU_SURRENDER_BUTTON:
-				GameController.EndCurrentState(); //end game menu
-				GameController.EndCurrentState(); //end game
+                GameController.SwitchState(GameState.EndingGame);
+                EndingGameController.PlayerSurrendered();
 				break;
 			case GAME_MENU_QUIT_BUTTON:
 				GameController.AddNewState(GameState.Quitting);
