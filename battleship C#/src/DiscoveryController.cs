@@ -25,11 +25,13 @@ internal static class DiscoveryController
 		_ticks++;
 		if (_ticks > _sec){
 			_sec += ONE_SECOND;
-			Console.WriteLine("Time Passed for this Turn: " + _sec/ONE_SECOND);
+			//DEBUG
+			//Console.WriteLine("Time Passed for this Turn: " + _sec/ONE_SECOND);
 		}
-		//If 30 seconds pass without action, skip to the next player
+		//If 20 seconds pass without action, skip to the next player
 		if (_sec > TURN_TIME_LIMIT) {
-			Console.WriteLine("Time limit for turn exceeded");
+			//DEBUG
+			//Console.WriteLine("Time limit for turn exceeded");
 			GameController.TurnSwitch();
 			_ticks = 0;
 			_sec = 0;
