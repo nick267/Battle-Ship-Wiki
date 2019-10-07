@@ -290,6 +290,11 @@ public static class GameController
         }
     }
 
+    public static void TurnSwitch() {
+        _theGame.SwitchPlayerDueToInactivity();
+        AIAttack();
+    }
+
 	/// <summary>
 	/// Handles the user SwinGame.
 	/// </summary>

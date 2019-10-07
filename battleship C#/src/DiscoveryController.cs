@@ -6,6 +6,11 @@ using SwinGameSDK;
 /// </summary>
 internal static class DiscoveryController
 {
+	private const int ONE_SECOND = 1000;
+	private const int TURN_TIME_LIMIT = 20000;
+	private static int _ticks = 0;
+	private static int _sec = 0;
+
 
 	/// <summary>
 	/// Handles input during the discovery phase of the game.
@@ -16,6 +21,20 @@ internal static class DiscoveryController
 	/// </remarks>
 	public static void HandleDiscoveryInput()
 	{
+		//Use Game Ticks to Count 
+		_ticks++;
+		if (_ticks > _sec){
+			_sec += ONE_SECOND;
+			Console.WriteLine("Time Passed for this Turn: " + _sec/ONE_SECOND);
+		}
+		//If 30 seconds pass without action, skip to the next player
+		if (_sec > TURN_TIME_LIMIT) {
+			Console.WriteLine("Time limit for turn exceeded");
+			GameController.TurnSwitch();
+			_ticks = 0;
+			_sec = 0;
+		}
+
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
 		{
 			GameController.AddNewState(GameState.ViewingGameMenu);
@@ -23,8 +42,11 @@ internal static class DiscoveryController
 
 		if (SwinGame.MouseClicked(MouseButton.LeftButton))
 		{
+			_ticks = 0;
+			_sec = 0;
 			DoAttack();
 		}
+		
 	}
 
 	/// <summary>

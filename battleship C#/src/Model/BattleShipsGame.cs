@@ -105,4 +105,12 @@ public class BattleShipsGame
 
 		return newAttack;
 	}
+
+	public void SwitchPlayerDueToInactivity() 
+	{
+		int otherPlayer = (_playerIndex + 1) % 2;
+
+		_playerIndex = otherPlayer;
+		Console.WriteLine("plz switcxh");
+	}
 }
