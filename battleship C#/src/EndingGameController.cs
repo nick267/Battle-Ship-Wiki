@@ -8,6 +8,17 @@ using SwinGameSDK;
 
 internal static class EndingGameController
 {
+
+	//Variables and Getters to Count Games Played/Won/Lost
+	private static int _gamesWon = 0;
+	private static int _gamesLost = 0;
+	private static int _gamesPlayed = 0;
+
+	public static int gamesWon { get { return _gamesWon; } }
+	public static int gamesLost { get { return _gamesLost; } }
+	public static int gamesPlayed { get { return _gamesPlayed; } }
+
+	//Check if player surrendered the game
 	private static bool _playerSurrendered = false;
 
 	public static void PlayerSurrendered() {
@@ -49,8 +60,6 @@ internal static class EndingGameController
 		}
 
 		SwinGame.DrawTextLines(whatShouldIPrint, Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, toDraw);
-
-
 	}
 
 	/// <summary>
@@ -61,6 +70,19 @@ internal static class EndingGameController
 	{
 		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
 		{
+			_gamesPlayed++;
+			
+			if ((GameController.HumanPlayer.IsDestroyed) || (_playerSurrendered))
+			{
+				_gamesLost++;
+			}
+			else 
+			{
+				_gamesWon++;
+			}
+			//DEBUG
+			//Console.WriteLine("Games Played: " + _gamesPlayed + " || Games Won: " + _gamesWon + " || Games Lost: " + _gamesLost);
+
 			HighScoreController.ReadHighScore(GameController.HumanPlayer.Score);
 			GameController.EndCurrentState();
 		}

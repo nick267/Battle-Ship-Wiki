@@ -138,8 +138,19 @@ internal static class MenuController
     /// </summary>
     public static void DrawMainMenu()
     {
+        int textHeight = 14;
+        int gamesPlayed = EndingGameController.gamesPlayed;
+        int gamesWon = EndingGameController.gamesWon;
+        int gamesLost = EndingGameController.gamesLost;
+
+        string gamesPlayedText = "Games Played: " + gamesPlayed;
+        string gamesWonText = "Games Won: " + gamesWon;
+        string gamesLostText = "Games Lost: " + gamesLost;
+
         //Clears the Screen to Black
-        //SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
+        SwinGame.DrawText(gamesPlayedText, Color.White, GameResources.GameFont("Courier"), 10, textHeight);
+        SwinGame.DrawText(gamesWonText, Color.White, GameResources.GameFont("Courier"), 10, textHeight*2);
+        SwinGame.DrawText(gamesLostText, Color.White, GameResources.GameFont("Courier"), 10, textHeight*3);
 
         DrawButtons(MAIN_MENU);
     }
