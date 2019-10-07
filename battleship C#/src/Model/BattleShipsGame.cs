@@ -111,6 +111,5 @@ public class BattleShipsGame
 		int otherPlayer = (_playerIndex + 1) % 2;
 
 		_playerIndex = otherPlayer;
-		Console.WriteLine("plz switcxh");
 	}
 }
