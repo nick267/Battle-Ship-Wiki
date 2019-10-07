@@ -97,15 +97,12 @@ public static class GameController
         switch (_aiSetting)
         {
             case AIOption.Medium:
-                Console.WriteLine("About to make AI Medium player fn");
                 _ai = new AIMediumPlayer(_theGame);
                 break;
             case AIOption.Hard:
-                Console.WriteLine("About to make AI Hard player fn");
                 _ai = new AIHardPlayer(_theGame);
                 break;
             default:
-                Console.WriteLine("About to make AI Hard(def) player fn");
                 _ai = new AIHardPlayer(_theGame);
                 break;
         }
@@ -319,9 +316,11 @@ public static class GameController
 				break;
 			case GameState.Deploying:
 				DeploymentController.HandleDeploymentInput();
+                MenuController.HandleGameMenuInput();
 				break;
 			case GameState.Discovering:
 				DiscoveryController.HandleDiscoveryInput();
+                MenuController.HandleGameMenuInput();
 				break;
 			case GameState.EndingGame:
 				EndingGameController.HandleEndOfGameInput();
