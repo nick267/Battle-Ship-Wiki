@@ -48,16 +48,21 @@ public static class GameResources
         NewImage("Explosion", "explosion.png");
         NewImage("Splash", "splash.png");
     }
+    //*Changed sound files to better represent the project//
+
 
     private static void LoadSounds()
     {
         NewSound("Error", "error.wav");
         NewSound("Hit", "hit.wav");
+        NewSound("Hit", "hitsound.wav");
         NewSound("Sink", "sink.wav");
         NewSound("Siren", "siren.wav");
         NewSound("Miss", "watershot.wav");
         NewSound("Winner", "winner.wav");
+        Newsound("Winner", "winner.mp3");
         NewSound("Lose", "lose.wav");
+        NewSound("lose", "lose.mp3");
     }
 
     private static void LoadMusic()
