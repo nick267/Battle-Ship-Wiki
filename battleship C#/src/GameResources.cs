@@ -161,7 +161,9 @@ public static class GameResources
 
     private static void ShowLoadingScreen()
     {
+       
         _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("ready.jpg", ResourceKind.BitmapResource));
+       
         SwinGame.DrawBitmap(_Background, 0, 0);
         SwinGame.RefreshScreen();
         SwinGame.ProcessEvents();
